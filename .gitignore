@@ -1,1 +1,9 @@
-/.idea
+.DS_Store
+phpunit.phar
+/vendor
+composer.phar
+composer.lock
+*.project
+.idea/
+.php_cs.cache
+.vscode/

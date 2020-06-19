@@ -8,14 +8,12 @@
 
 namespace Wannabing\Wechat\OpenApi;
 
+use Illuminate\Support\Facades\Log;
 use Wannabing\Wechat\Wechat;
 use Illuminate\Support\Facades\Cache;
-use Log;
 
-class Card
+class WechatCard
 {
-
-
     private $GET_CARD = 'https://api.weixin.qq.com/card/batchget?access_token=%s';
     private $GET_CARD_INFO = 'https://api.weixin.qq.com/card/get?access_token=%s';
     private $SEND_CARD = 'https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=%s';             //客服消息发放卡券
@@ -26,6 +24,7 @@ class Card
     private $GET_USER_CARD_DETAIL = 'https://api.weixin.qq.com/card/membercard/userinfo/get?access_token=%s'; //获取用户的会员卡详情
     private $API_TICKET = 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=%s&type=wx_card';  //卡券apiticket获取
     private $wechat;
+
     function __construct(Wechat $wechat)
     {
         $this->wechat = $wechat;
@@ -117,13 +116,13 @@ class Card
      * @return bool
      * @author  hkw <hkw925@qq.com>
      */
-    public function sendVipCard($openid)
+    public function sendVipCard($openid, $card_id)
     {
         $data   = [
             'touser'  => $openid,
             'msgtype' => 'wxcard',
             'wxcard'  => [
-                'card_id' => Card::$CARD_ID
+                'card_id' => $card_id
             ]
         ];
         $result = json_decode(curlPost(sprintf($this->SEND_CARD, $this->wechat->getAccessToken()), json_encode($data)), true);
@@ -141,11 +140,11 @@ class Card
      * @return bool
      * @author  hkw <hkw925@qq.com>
      */
-    public function updateIntegral($code, $bonus, $add_bonus, $record_bonus)
+    public function updateIntegral($card_id, $code, $bonus, $add_bonus, $record_bonus)
     {
         $data   = [
             'code'         => $code,
-            'card_id'      => Card::$CARD_ID,
+            'card_id'      => $card_id,
             'bonus'        => $bonus,
             'add_bonus'    => $add_bonus,
             'record_bonus' => $record_bonus,

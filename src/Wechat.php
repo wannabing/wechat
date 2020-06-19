@@ -4,12 +4,12 @@
 namespace Wannabing\Wechat;
 
 
-use Huangkaiwang\Wechat\OpenApi\Card;
-use Huangkaiwang\Wechat\OpenApi\WechatJs;
-use Huangkaiwang\Wechat\OpenApi\WechatUser;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
+use Wannabing\Wechat\OpenApi\WechatCard;
+use Wannabing\Wechat\OpenApi\WechatJs;
+use Wannabing\Wechat\OpenApi\WechatUser;
 
 class Wechat
 {
@@ -39,9 +39,9 @@ class Wechat
         $this->appSecret = config('wechat.secret');
         $this->mch_id    = config('wechat.payment.merchant_id');
         $this->key       = config('wechat.payment.key');
-        $this->card      = new Card($this);
+        $this->card      = new WechatCard($this);
         $this->js        = new WechatJs($this);
-        $this->user      = new WechatUser();
+        $this->user      = new WechatUser($this);
     }
 
 

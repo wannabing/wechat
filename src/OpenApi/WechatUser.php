@@ -9,8 +9,8 @@
 namespace Wannabing\Wechat\OpenApi;
 
 
+use Illuminate\Support\Facades\Log;
 use Wannabing\Wechat\Wechat;
-use Log;
 
 class WechatUser
 {
