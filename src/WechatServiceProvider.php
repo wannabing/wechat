@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Huangkaiwang\Wechat;
+namespace Wannabing\Wechat;
 
 
 use Illuminate\Support\ServiceProvider;

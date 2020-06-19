@@ -6,9 +6,9 @@
  * Time: 16:49
  */
 
-namespace Huangkaiwang\Wechat\OpenApi;
+namespace Wannabing\Wechat\OpenApi;
 
-use Huangkaiwang\Wechat\Wechat;
+use Wannabing\Wechat\Wechat;
 use Illuminate\Support\Facades\Cache;
 use Log;
 

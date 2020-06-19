@@ -1,22 +1,22 @@
 {
-    "name": "huangkaiwang/wechat",
+    "name": "wannabing/wechat",
     "description": "wechat for myself",
     "license": "MIT",
     "authors": [
         {
-            "name": "huangkaiwang",
+            "name": "wannabing",
             "email": "hkw@hisums.com"
         }
     ],
     "require": {},
     "autoload": {
         "psr-4": {
-            "Huangkaiwang\\Wechat\\": "src/"
+            "Wannabing\\Wechat\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Huangkaiwang\\Wechat\\Tests\\": "tests/"
+            "Wannabing\\Wechat\\Tests\\": "tests/"
         }
     }
 }

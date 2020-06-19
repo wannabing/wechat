@@ -6,10 +6,10 @@
  * Time: 15:58
  */
 
-namespace Huangkaiwang\Wechat\OpenApi;
+namespace Wannabing\Wechat\OpenApi;
 
 
-use Huangkaiwang\Wechat\Wechat;
+use Wannabing\Wechat\Wechat;
 use Log;
 
 class WechatUser
